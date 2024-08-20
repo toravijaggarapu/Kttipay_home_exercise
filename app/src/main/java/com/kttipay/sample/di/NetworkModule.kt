@@ -1,16 +1,12 @@
 package com.kttipay.sample.di
 
-import android.content.Context
-import com.kttipay.sample.network.interceptors.LiveNetworkMonitor
+import com.kttipay.sample.BuildConfig
 import com.kttipay.sample.network.MovieAPIService
 import com.kttipay.sample.network.interceptors.BarrierInterceptor
-import com.kttipay.sample.network.interceptors.NetworkMonitor
 import com.kttipay.sample.network.interceptors.NetworkMonitorInterceptor
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -23,17 +19,18 @@ import javax.inject.Singleton
 class NetworkModule {
 
     @Provides
-    fun provideNetworkMonitor(@ApplicationContext appContext: Context): NetworkMonitor {
-        return LiveNetworkMonitor(appContext)
-    }
-
-    @Provides
     @Singleton
-    fun provideOkHttpClient(liveNetwork: LiveNetworkMonitor): OkHttpClient {
+    fun provideOkHttpClient(
+        barrierInterceptor: BarrierInterceptor,
+        networkMonitorInterceptor: NetworkMonitorInterceptor
+    ): OkHttpClient {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.setLevel(if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE)
+
         return OkHttpClient.Builder()
-            .addInterceptor(NetworkMonitorInterceptor(liveNetwork))
-            .addInterceptor(HttpLoggingInterceptor())
-            .addInterceptor(BarrierInterceptor())
+            .addInterceptor(interceptor)
+            .addInterceptor(barrierInterceptor)
+            .addInterceptor(networkMonitorInterceptor)
             .build()
     }
 
@@ -41,7 +38,7 @@ class NetworkModule {
     @Singleton
     fun provideRetrofitInstance(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://6471a6946a9370d5a41a84bb.mockapi.io/")
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -52,5 +49,4 @@ class NetworkModule {
     fun provideMovieAPIService(retrofit: Retrofit): MovieAPIService {
         return retrofit.create(MovieAPIService::class.java)
     }
-
 }
