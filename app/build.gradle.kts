@@ -37,7 +37,7 @@ android {
 
         debug {
             isMinifyEnabled = false
-//            https://image.tmdb.org/t/p/w500/yDHYTfA3R0jFYba16jBB1ef8oIt.jpg
+//            https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg
             buildConfigField("String", "IMAGE_BASE_URL", "\"https://image.tmdb.org/t/p/\"")
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org\"")
             buildConfigField("String", "API_KEY", "\"1a0939acd271d12c2807ad63603d452b\"")
@@ -67,6 +67,7 @@ android {
 
 dependencies {
 
+    // ================ ANDROID ================
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -76,18 +77,23 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+    // ================ Jetpack ================
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.jetbrains.kotlinx.coroutines)
 
+    // ============ OKHTTP & RETROFIT =============
     implementation(libs.squareup.okhttp3)
     implementation(libs.squareup.retrofit2)
     implementation(libs.squareup.gson.convertor)
     implementation(libs.squareup.logging.interceptor)
 
+    // =============== Glide ===============
+    implementation(libs.github.glide.compose)
+
+    // ================ HILT ================
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.compose)
     kapt(libs.hilt.compiler)
-
 
     // ================ UNIT TEST ================
     testImplementation(libs.junit)

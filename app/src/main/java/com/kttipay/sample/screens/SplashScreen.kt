@@ -76,14 +76,21 @@ private fun SplashView() {
                     style = KttipayTextStyle.ThreeSix700Green
                 )
 
-                CircularProgressIndicator(
-                    modifier = Modifier
+                CommonProgress(
+                    Modifier
                         .align(Alignment.BottomCenter)
-                        .padding(MarginTwenty),
-                    color = LightGreen,
-                    trackColor = SplashDkBlackGreen
-                )
+                        .padding(MarginTwenty))
             }
         }
     }
+}
+
+@Composable
+@Preview
+fun CommonProgress(modifier: Modifier = Modifier) {
+    CircularProgressIndicator(
+        modifier = modifier,
+        color = LightGreen,
+        trackColor = SplashDkBlackGreen
+    )
 }

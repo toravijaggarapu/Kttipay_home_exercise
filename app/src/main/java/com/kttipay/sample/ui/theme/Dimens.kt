@@ -47,4 +47,5 @@ val MarginOneZeroFive = 105.dp
 val MarginOneTwoThree = 123.dp
 val MarginOneFourOne = 141.dp
 val MarginOneFiveZero = 150.dp
+val MarginTwoFifty = 250.dp
 val MarginThreeHundred = 300.dp

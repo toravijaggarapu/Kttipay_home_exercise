@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Kttipay</string>
     <string name="the_movie_db">THE\nMOVIE\nDB</string>
+    <string name="no_records">No Records</string>
+    <string name="no_movies_found">No Movies Found</string>
+    <string name="movie_db_ratting">MOVIE DB Ratting:</string>
+    <string name="overview">Overview:</string>
+    <string name="run_time">Run time:</string>
 </resources>

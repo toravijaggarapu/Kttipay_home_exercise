@@ -14,6 +14,7 @@ coroutines = "1.3.9"
 okhttp = "4.9.1"
 retrofit = "2.9.0"
 hiltCompose = "1.1.0"
+glide = "1.0.0-beta01"
 
 
 [libraries]
@@ -44,6 +45,7 @@ squareup-retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", vers
 squareup-gson-convertor = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 squareup-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp"}
 
+github-glide-compose = { group = "com.github.bumptech.glide", name = "compose", version.ref = "glide"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

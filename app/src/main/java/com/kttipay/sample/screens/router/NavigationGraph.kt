@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.kttipay.sample.screens.movies.MoviesListScreen
 import com.kttipay.sample.screens.SplashScreen
+import com.kttipay.sample.screens.movie_details.MovieDetailsScreen
 
 @Composable
 fun MovieDbNavigation() {
@@ -22,6 +23,10 @@ fun MovieDbNavigation() {
 
         composable(MovieDBNavigation.MovieListScreen().destination) {
             MoviesListScreen(navController)
+        }
+
+        composable(MovieDBNavigation.MovieDetailScreen().destination) {
+            MovieDetailsScreen()
         }
     }
 }

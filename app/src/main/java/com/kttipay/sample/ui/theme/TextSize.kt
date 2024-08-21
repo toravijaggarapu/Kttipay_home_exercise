@@ -2,6 +2,7 @@ package com.kttipay.sample.ui.theme
 
 import androidx.compose.ui.unit.sp
 
+val TextSizeThirteen = 13.sp
 val TextSizeFourteen = 14.sp
 val TextSizeSixteen = 16.sp
 val TextSizeEighteen = 18.sp
