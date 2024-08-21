@@ -6,10 +6,13 @@ import retrofit2.http.Path
 
 interface MovieAPIService {
 
-    @GET("/api/movies")
-    suspend fun getMovies(): List<Movie>
+    @GET("/3/movie/now_playing")
+    suspend fun getNowPlayingMovies(): List<Movie>
 
-    @GET("/api/movies/details=(movieId)")
+    @GET("/3/movie/popular")
+    suspend fun getPopularMovies(): List<Movie>
+
+    @GET("/3/movie/{movieId}")
     suspend fun getMovieDetails(@Path("movieId") movieId: String): Movie
 
 }

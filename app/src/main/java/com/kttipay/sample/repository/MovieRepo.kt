@@ -14,11 +14,10 @@ interface MovieRepo {
 class MovieRepoImpl @Inject constructor(private val apiService: MovieAPIService) : MovieRepo {
 
     override suspend fun getMovies(): List<Movie> {
-        return apiService.getMovies()
+        return apiService.getNowPlayingMovies()
     }
 
     override suspend fun getMovieDetails(id: String): Movie {
         return apiService.getMovieDetails(id)
     }
-
 }
