@@ -48,7 +48,7 @@ import com.kttipay.sample.ui.theme.MarginTwoFifty
 
 @Composable
 fun MovieDetailsScreen(
-    movieId: Int = 748783, viewModel: MovieDetailsViewModel = hiltViewModel()
+    movieId: Int, viewModel: MovieDetailsViewModel = hiltViewModel()
 ) {
 
     val movieDetailsState = viewModel.movieDetailsUiState.collectAsState()
