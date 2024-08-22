@@ -41,13 +41,13 @@ data class MovieInfo(
     val runTime: Int,
 ) {
     val backDropFullImageUrl: String
-        get() = BuildConfig.IMAGE_BASE_URL + "w500" + backDropPath
+        get() = BuildConfig.IMAGE_BASE_URL + "w400" + backDropPath
 
     val displayDateFormat: String
         get() = releaseDate.formatFrom(RESPONSE_DATE_FORMAT).formatTo(DISPLAY_DATE_FORMAT)
 
     val runtimeDisplay: String
-        get() = "${runTime / 60} Minutes"
+        get() = "${runTime / 60} Hours ${if(runTime % 60 == 0) "" else "${runTime % 60} Minutes"}"
 
     companion object {
         fun getDummyObject() = MovieInfo(

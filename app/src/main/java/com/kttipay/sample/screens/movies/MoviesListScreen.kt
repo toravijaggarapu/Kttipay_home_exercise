@@ -66,17 +66,19 @@ fun MoviesListScreen(
     navController: NavController = NavController(LocalContext.current),
     viewModel: MovieListViewModel = hiltViewModel()
 ) {
-
     LaunchedEffect(Unit) {
-        viewModel.getNowPlayingMovies()
-        viewModel.getPopularMovies()
+        if (!viewModel.isScreenLaunched) {
+            viewModel.isScreenLaunched = true
+            viewModel.getNowPlayingMovies()
+            viewModel.getPopularMovies()
+        }
     }
 
     MoviesView(
         nowPlayingMovieState = viewModel.nowPlayingMovieUiState,
         popularMovieState = viewModel.popularMovieUiState
-    ) {
-        navController.navigate(MovieDBNavigation.MovieDetailScreen().destination)
+    ) { movieId ->
+        navController.navigate(MovieDBNavigation.MovieDetailScreen().createRoute(movieId))
     }
 }
 

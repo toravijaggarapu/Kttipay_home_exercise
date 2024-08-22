@@ -23,6 +23,8 @@ class MovieListViewModel @Inject constructor(
     private val _popularMovieUiState = MutableStateFlow<PopularMovieUiState>(PopularMovieUiState.Loading)
     val popularMovieUiState = _popularMovieUiState.asStateFlow()
 
+    var isScreenLaunched = false
+
     fun getNowPlayingMovies(scope: CoroutineScope = viewModelScope) {
         scope.launch {
             _nowPlayingMovieUiState.value = NowPlayingMovieUiState.Loading

@@ -38,7 +38,11 @@ fun SplashScreen(
     SplashView()
     LaunchedEffect(Unit) {
         delay(SPLASH_DELAY)
-        navController.navigate(MovieDBNavigation.MovieListScreen().destination)
+        navController.navigate(MovieDBNavigation.MovieListScreen().destination) {
+            popUpTo(MovieDBNavigation.MovieDBRoute().route) {
+                inclusive = true
+            }
+        }
     }
 }
 
@@ -79,7 +83,8 @@ private fun SplashView() {
                 CommonProgress(
                     Modifier
                         .align(Alignment.BottomCenter)
-                        .padding(MarginTwenty))
+                        .padding(MarginTwenty)
+                )
             }
         }
     }

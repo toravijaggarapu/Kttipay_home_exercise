@@ -1,5 +1,6 @@
 package com.kttipay.sample.screens.movie_details
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
@@ -18,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,16 +40,15 @@ import com.kttipay.sample.ui.theme.KttipayTextStyle.Thirty400White
 import com.kttipay.sample.ui.theme.KttipayTextStyle.Twenty400White
 import com.kttipay.sample.ui.theme.KttipayTextStyle.TwentyFour700White
 import com.kttipay.sample.ui.theme.MarginFifteen
+import com.kttipay.sample.ui.theme.MarginFifty
 import com.kttipay.sample.ui.theme.MarginFive
 import com.kttipay.sample.ui.theme.MarginTen
-import com.kttipay.sample.ui.theme.MarginThreeHundred
 import com.kttipay.sample.ui.theme.MarginTwenty
-
+import com.kttipay.sample.ui.theme.MarginTwoFifty
 
 @Composable
 fun MovieDetailsScreen(
-    movieId: Int = 748783,
-    viewModel: MovieDetailsViewModel = hiltViewModel()
+    movieId: Int = 748783, viewModel: MovieDetailsViewModel = hiltViewModel()
 ) {
 
     val movieDetailsState = viewModel.movieDetailsUiState.collectAsState()
@@ -107,12 +109,12 @@ private fun MovieDetailsView(movieDetails: MovieInfo = MovieInfo.getDummyObject(
 
         GlideImage(
             model = movieDetails.backDropFullImageUrl,
-            contentDescription = "",
+            contentDescription = movieDetails.title,
             loading = placeholder(R.drawable.ic_movie_bg),
             failure = placeholder(R.drawable.ic_movie_bg),
             modifier = Modifier
                 .fillMaxWidth()
-                .height(MarginThreeHundred)
+                .height(MarginTwoFifty)
                 .padding(top = MarginFifteen),
             contentScale = ContentScale.FillBounds
         )
@@ -121,14 +123,27 @@ private fun MovieDetailsView(movieDetails: MovieInfo = MovieInfo.getDummyObject(
 
             Text(
                 text = stringResource(R.string.movie_db_ratting),
-                modifier = Modifier.padding(MarginTen),
+                modifier = Modifier.padding(
+                    start = MarginFifteen,
+                    top = MarginFifteen
+                ),
                 style = Thirteen700White
             )
 
-            Row {
+            Row(modifier = Modifier.padding(top = MarginTen)) {
+
+                Image(
+                    painter = painterResource(id = R.drawable.ic_star),
+                    contentDescription = movieDetails.ratting,
+                    modifier = Modifier
+                        .padding(start = MarginFifteen)
+                        .height(MarginFifty)
+                        .width(MarginFifty)
+                )
+
                 Text(
                     text = movieDetails.ratting,
-                    modifier = Modifier.padding(start = MarginTen),
+                    modifier = Modifier.padding(start = MarginFifteen, top = MarginTen),
                     style = Forty600White
                 )
 
@@ -141,20 +156,20 @@ private fun MovieDetailsView(movieDetails: MovieInfo = MovieInfo.getDummyObject(
 
             Text(
                 text = stringResource(R.string.overview),
-                modifier = Modifier.padding(start = MarginTen, top = MarginTwenty),
+                modifier = Modifier.padding(start = MarginFifteen, top = MarginTwenty),
                 style = Eighteen600White
             )
 
             Text(
                 text = movieDetails.overview,
-                modifier = Modifier.padding(start = MarginTen, top = MarginFive),
+                modifier = Modifier.padding(start = MarginFifteen, top = MarginFive),
                 style = Sixteen400White
             )
 
             Text(
                 text = stringResource(R.string.run_time),
                 modifier = Modifier.padding(
-                    start = MarginTen,
+                    start = MarginFifteen,
                     top = MarginTwenty,
                     end = MarginTen
                 ),
@@ -163,8 +178,8 @@ private fun MovieDetailsView(movieDetails: MovieInfo = MovieInfo.getDummyObject(
 
             Text(
                 text = movieDetails.runtimeDisplay,
-                style = Thirty400White,
-                modifier = Modifier.padding(start = MarginTen, top = MarginFifteen)
+                style = Twenty400White,
+                modifier = Modifier.padding(start = MarginFifteen, top = MarginFive)
             )
         }
     }

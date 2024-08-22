@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.kttipay.sample.screens.movies.MoviesListScreen
 import com.kttipay.sample.screens.SplashScreen
 import com.kttipay.sample.screens.movie_details.MovieDetailsScreen
+import com.kttipay.sample.screens.router.MovieDBNavigation.MovieDetailScreen.Companion.MOVIE_ID
 
 @Composable
 fun MovieDbNavigation() {
@@ -15,7 +16,8 @@ fun MovieDbNavigation() {
 
     NavHost(
         navController = navController,
-        startDestination = MovieDBNavigation.SplashScreen().destination
+        startDestination = MovieDBNavigation.SplashScreen().destination,
+        route = MovieDBNavigation.MovieDBRoute().route
     ) {
         composable(MovieDBNavigation.SplashScreen().destination) {
             SplashScreen(navController)
@@ -25,8 +27,9 @@ fun MovieDbNavigation() {
             MoviesListScreen(navController)
         }
 
-        composable(MovieDBNavigation.MovieDetailScreen().destination) {
-            MovieDetailsScreen()
+        composable(MovieDBNavigation.MovieDetailScreen().destination) { backStackEntry ->
+            val movieId = backStackEntry.arguments?.getString(MOVIE_ID)?.toInt() ?: 0
+            MovieDetailsScreen(movieId)
         }
     }
 }
