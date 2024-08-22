@@ -28,7 +28,11 @@ android {
             buildConfigField("String", "IMAGE_BASE_URL", "\"https://image.tmdb.org/t/p/\"")
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org\"")
             buildConfigField("String", "API_KEY", "\"1a0939acd271d12c2807ad63603d452b\"")
-            buildConfigField("String", "TOKEN", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYTA5MzlhY2QyNzFkMTJjMjgwN2FkNjM2MDNkNDUyYiIsIm5iZiI6MTcyNDExMzUxOS43ODUwNTQsInN1YiI6IjY2YzNkZmQyNjU3MmJiYzhkZDU2ODdmNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ShpyhIKw9vrZGJUxotnw7N_yb_4lZe5rDQrEMDp94x4\"")
+            buildConfigField(
+                "String",
+                "TOKEN",
+                "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYTA5MzlhY2QyNzFkMTJjMjgwN2FkNjM2MDNkNDUyYiIsIm5iZiI6MTcyNDExMzUxOS43ODUwNTQsInN1YiI6IjY2YzNkZmQyNjU3MmJiYzhkZDU2ODdmNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ShpyhIKw9vrZGJUxotnw7N_yb_4lZe5rDQrEMDp94x4\""
+            )
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -41,7 +45,11 @@ android {
             buildConfigField("String", "IMAGE_BASE_URL", "\"https://image.tmdb.org/t/p/\"")
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org\"")
             buildConfigField("String", "API_KEY", "\"1a0939acd271d12c2807ad63603d452b\"")
-            buildConfigField("String", "TOKEN", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYTA5MzlhY2QyNzFkMTJjMjgwN2FkNjM2MDNkNDUyYiIsIm5iZiI6MTcyNDExMzUxOS43ODUwNTQsInN1YiI6IjY2YzNkZmQyNjU3MmJiYzhkZDU2ODdmNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ShpyhIKw9vrZGJUxotnw7N_yb_4lZe5rDQrEMDp94x4\"")
+            buildConfigField(
+                "String",
+                "TOKEN",
+                "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYTA5MzlhY2QyNzFkMTJjMjgwN2FkNjM2MDNkNDUyYiIsIm5iZiI6MTcyNDExMzUxOS43ODUwNTQsInN1YiI6IjY2YzNkZmQyNjU3MmJiYzhkZDU2ODdmNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ShpyhIKw9vrZGJUxotnw7N_yb_4lZe5rDQrEMDp94x4\""
+            )
         }
     }
     compileOptions {
@@ -101,6 +109,11 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.androidx.test)
+    testImplementation(libs.kotlin.mockito)
+    testImplementation(libs.kotlin.test.junit)
+
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }

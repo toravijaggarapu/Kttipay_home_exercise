@@ -15,12 +15,14 @@ okhttp = "4.9.1"
 retrofit = "2.9.0"
 hiltCompose = "1.1.0"
 glide = "1.0.0-beta01"
+coroutinesTest = "1.7.1"
+androidxTest = "1.5.0"
+kotilnMockito = "3.2.0"
+kotlinJunit = "1.4.31"
 
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
@@ -43,9 +45,19 @@ androidx-hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compo
 squareup-okhttp3 = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 squareup-retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 squareup-gson-convertor = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
-squareup-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp"}
+squareup-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 
-github-glide-compose = { group = "com.github.bumptech.glide", name = "compose", version.ref = "glide"}
+github-glide-compose = { group = "com.github.bumptech.glide", name = "compose", version.ref = "glide" }
+
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
+androidx-test = { group = "androidx.test", name = "core", version.ref = "androidxTest" }
+kotlin-mockito = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "kotilnMockito" }
+kotlin-test-junit = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit", version.ref = "kotlinJunit" }
+
+
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
