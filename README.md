@@ -13,6 +13,11 @@ This project demonstrates my skills in Android development, following best pract
 - **SOLID** Principles: Follows SOLID principles to ensure code maintainability and flexibility.
 - **Unit Testing:** Includes comprehensive unit tests for ViewModels to validate API fetch logic.
 
+### Screenshots
+
+![image](https://github.com/user-attachments/assets/39a66cf8-9fea-45a7-b4ee-3dfcb016fee7)
+![image](https://github.com/user-attachments/assets/ee638454-64e8-42b3-b777-48f8219b56a9)
+
 ### Prerequisites
 - Git installed
 - JDK (latest version recommended)
