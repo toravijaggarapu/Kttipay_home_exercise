@@ -9,7 +9,7 @@ This project demonstrates my skills in Android development, following best pract
 - **MVVM Architecture:** Adheres to the Model-View-ViewModel architectural pattern for clean separation of concerns.
 - **Jetpack Compose:** Utilizes the modern declarative UI toolkit for building a responsive and visually appealing user interface.
 - **Retrofit:** Employs the popular networking library for efficient API communication.
-- **Hilt Android:** Seamlesly inject project dependencies.
+- **Hilt Android:** Seamlessly inject project dependencies.
 - **SOLID** Principles: Follows SOLID principles to ensure code maintainability and flexibility.
 - **Unit Testing:** Includes comprehensive unit tests for ViewModels to validate API fetch logic.
 
@@ -37,7 +37,7 @@ The project uses standard Gradle build configurations. No specific commands are 
 - **Architecture:** MVVM
 - **Libraries/Frameworks:**
   - Jetpack Compose
-  - Retroft
+  - Retrofit
   - Glide
   - Hilt Android
   - Junit
