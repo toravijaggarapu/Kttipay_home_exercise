@@ -20,7 +20,7 @@ import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class MovieViewModelTest {
+class MovieListViewModelTest {
 
     private lateinit var viewModel: MovieListViewModel
     private lateinit var movieRepository: MovieRepo
