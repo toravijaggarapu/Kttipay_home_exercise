@@ -6,7 +6,7 @@ This project demonstrates my skills in Android development, following best pract
 ### Key Features
 - **Movie List:** Displays a list of currently playing movies fetched from an external API.
 - **Movie Details:** Presents detailed information about a selected movie, including poster, title, overview, and release date.
-= **MVVM Architecture:** Adheres to the Model-View-ViewModel architectural pattern for clean separation of concerns.
+- **MVVM Architecture:** Adheres to the Model-View-ViewModel architectural pattern for clean separation of concerns.
 - **Jetpack Compose:** Utilizes the modern declarative UI toolkit for building a responsive and visually appealing user interface.
 - **Retrofit:** Employs the popular networking library for efficient API communication.
 - **Hilt Android:** Seamlesly inject project dependencies.
